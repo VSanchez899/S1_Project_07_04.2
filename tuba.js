@@ -52,7 +52,7 @@ var fuelFieldset = document.getElementsByTagName("fieldset")[3];
 /* verify at least one crops checkbox is checked */
 function verifyCrops() {
     try { for (var i = 0; i < 7; i++) {
-     if (crop.Fieldset.getElementById("input")[i].checked) {
+     if (cropsFieldset.getElementsByTagName("input")[i].checked) {
       cropsComplete = true; messageElement.innerHTML = ""; //clear previous message or recommendation
       testFormCompleteness(); i=8;
     }
@@ -60,13 +60,14 @@ function verifyCrops() {
     if (i === 7) {
       throw "Please select at least one crop.";
     }
+  }
     catch(message){
       cropsComplete = false; messageHeadElement.innerHTML = "";
       //remove any former reccomendation heading
       messageElement.innerHTML = message; // display error message
     }
   }
-}
+
 
 /* verify months text box entry is between 1 and 12 */
 function verifyMonths() {
